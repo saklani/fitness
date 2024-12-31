@@ -72,8 +72,8 @@ export const exercise = pgTable("exercise", {
 
 export const workout = pgTable("workout", {
     id: uuid('id').primaryKey().defaultRandom(),
-    userId: text('user_id').notNull().references(() => user.id),
     time: bigint('time', { mode: "number" }),
+    userId: text('user_id').notNull().references(() => user.id),
 });
 
 export const workoutSession = pgTable('workout_session', {

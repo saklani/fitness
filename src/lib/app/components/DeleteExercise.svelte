@@ -1,6 +1,5 @@
 <script lang="ts">
     import * as AlertDialog from "@app/ui/alert-dialog";
-    import { Button } from "@app/ui/button";
 
     const { removeExercise } = $props();
 </script>
@@ -17,9 +16,9 @@
         </AlertDialog.Header>
         <AlertDialog.Footer>
             <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-            <AlertDialog.Action on:click={removeExercise}
-                >Delete</AlertDialog.Action
-            >
+            <AlertDialog.Action on:click={removeExercise}>
+                Delete
+            </AlertDialog.Action>
         </AlertDialog.Footer>
     </AlertDialog.Content>
 </AlertDialog.Root>
