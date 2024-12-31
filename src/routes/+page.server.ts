@@ -7,7 +7,10 @@ export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {
 		return redirect(302, '/login');
 	}
-	return { user: event.locals.user, plans: await db.query.plan.findMany() };
+
+	type TExercise = Partial<{ id: number; name: string }>;
+	const exercises: TExercise[] = []
+	return { user: event.locals.user, plans: await db.query.plan.findMany(), exercises };
 };
 
 export const actions: Actions = {
