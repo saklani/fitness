@@ -1,0 +1,538 @@
+{
+  "id": "ad41c294-91ff-4332-afc7-2bab3a0399c2",
+  "prevId": "5850ef79-6be1-4611-b62b-e3f6008dba47",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.exercise": {
+      "name": "exercise",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(58)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "force": {
+          "name": "force",
+          "type": "varchar(6)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "level": {
+          "name": "level",
+          "type": "varchar(12)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mechanic": {
+          "name": "mechanic",
+          "type": "varchar(9)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "equipment": {
+          "name": "equipment",
+          "type": "varchar(13)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "primarymuscles0": {
+          "name": "primarymuscles0",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "instructions0": {
+          "name": "instructions0",
+          "type": "varchar(744)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions1": {
+          "name": "instructions1",
+          "type": "varchar(681)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions2": {
+          "name": "instructions2",
+          "type": "varchar(640)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions3": {
+          "name": "instructions3",
+          "type": "varchar(663)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions4": {
+          "name": "instructions4",
+          "type": "varchar(695)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category": {
+          "name": "category",
+          "type": "varchar(21)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "images0": {
+          "name": "images0",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "images1": {
+          "name": "images1",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "secondarymuscles0": {
+          "name": "secondarymuscles0",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles1": {
+          "name": "secondarymuscles1",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles2": {
+          "name": "secondarymuscles2",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles3": {
+          "name": "secondarymuscles3",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles4": {
+          "name": "secondarymuscles4",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles5": {
+          "name": "secondarymuscles5",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles6": {
+          "name": "secondarymuscles6",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles7": {
+          "name": "secondarymuscles7",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles8": {
+          "name": "secondarymuscles8",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondarymuscles9": {
+          "name": "secondarymuscles9",
+          "type": "varchar(7)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions5": {
+          "name": "instructions5",
+          "type": "varchar(568)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions6": {
+          "name": "instructions6",
+          "type": "varchar(276)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions7": {
+          "name": "instructions7",
+          "type": "varchar(406)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions8": {
+          "name": "instructions8",
+          "type": "varchar(162)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions9": {
+          "name": "instructions9",
+          "type": "varchar(165)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions10": {
+          "name": "instructions10",
+          "type": "varchar(89)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions11": {
+          "name": "instructions11",
+          "type": "varchar(233)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions12": {
+          "name": "instructions12",
+          "type": "varchar(163)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions13": {
+          "name": "instructions13",
+          "type": "varchar(105)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions14": {
+          "name": "instructions14",
+          "type": "varchar(241)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions15": {
+          "name": "instructions15",
+          "type": "varchar(155)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions16": {
+          "name": "instructions16",
+          "type": "varchar(70)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions17": {
+          "name": "instructions17",
+          "type": "varchar(194)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions18": {
+          "name": "instructions18",
+          "type": "varchar(112)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions19": {
+          "name": "instructions19",
+          "type": "varchar(67)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions20": {
+          "name": "instructions20",
+          "type": "varchar(153)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions21": {
+          "name": "instructions21",
+          "type": "varchar(86)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions22": {
+          "name": "instructions22",
+          "type": "varchar(74)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "instructions23": {
+          "name": "instructions23",
+          "type": "varchar(75)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.plan": {
+      "name": "plan",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.plan_session": {
+      "name": "plan_session",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "plan_id": {
+          "name": "plan_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "exercise_id": {
+          "name": "exercise_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "plan_session_plan_id_plan_id_fk": {
+          "name": "plan_session_plan_id_plan_id_fk",
+          "tableFrom": "plan_session",
+          "tableTo": "plan",
+          "columnsFrom": [
+            "plan_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "plan_session_exercise_id_exercise_id_fk": {
+          "name": "plan_session_exercise_id_exercise_id_fk",
+          "tableFrom": "plan_session",
+          "tableTo": "exercise",
+          "columnsFrom": [
+            "exercise_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.session": {
+      "name": "session",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "session_user_id_user_id_fk": {
+          "name": "session_user_id_user_id_fk",
+          "tableFrom": "session",
+          "tableTo": "user",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.user": {
+      "name": "user",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password_hash": {
+          "name": "password_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "user_email_unique": {
+          "name": "user_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        }
+      }
+    },
+    "public.workout": {
+      "name": "workout",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time": {
+          "name": "time",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "workout_id_user_id_fk": {
+          "name": "workout_id_user_id_fk",
+          "tableFrom": "workout",
+          "tableTo": "user",
+          "columnsFrom": [
+            "id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.workout_session": {
+      "name": "workout_session",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "workout_id": {
+          "name": "workout_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "exercise_id": {
+          "name": "exercise_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "workout_session_workout_id_workout_id_fk": {
+          "name": "workout_session_workout_id_workout_id_fk",
+          "tableFrom": "workout_session",
+          "tableTo": "workout",
+          "columnsFrom": [
+            "workout_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "workout_session_exercise_id_exercise_id_fk": {
+          "name": "workout_session_exercise_id_exercise_id_fk",
+          "tableFrom": "workout_session",
+          "tableTo": "exercise",
+          "columnsFrom": [
+            "exercise_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
