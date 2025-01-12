@@ -1,1 +1,0 @@
-ALTER TABLE "plan_session" ALTER COLUMN "plan_id" SET DATA TYPE uuid;

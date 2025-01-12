@@ -1,7 +1,7 @@
 import * as auth from '$lib/server/auth';
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
-import { db } from '$lib/server/db';
+import { db } from '$lib/db';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {
@@ -15,6 +15,7 @@ export const load: PageServerLoad = async (event) => {
 
 export const actions: Actions = {
 	logout: async (event) => {
+		console.log("Logout");
 		if (!event.locals.session) {
 			return fail(401);
 		}

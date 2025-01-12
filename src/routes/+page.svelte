@@ -12,10 +12,14 @@
 	const session = localStore<TExercise[]>("workout", []);
 </script>
 
-<div class="flex flex-col gap-[1.5rem] min-h-[100vh] p-2">
+<div class="flex flex-col gap-[1.5rem] min-h-[100vh]">
 	<div class="flex items-center justify-between">
 		<h1 class="font-semibold text-md">Account: {data.user.email}</h1>
-		<Button class="w-[128px]" variant="destructive">Sign Out</Button>
+		<form method="POST" action="?/logout">
+			<Button variant="destructive" type="submit">
+				Sign Out
+			</Button>
+		</form>
 	</div>
 	<Separator />
 	<Button
@@ -71,12 +75,14 @@
 	</div>
 	<Separator />
 	<div class="flex gap-2">
-		<Card.Root class="w-1/2">
-			<Card.Header>
-				<Card.Title>History</Card.Title>
-			</Card.Header>
-			<Card.Content></Card.Content>
-		</Card.Root>
+		<button class="w-1/2" onclick={() => goto("/history")}>
+			<Card.Root class="w-full">
+				<Card.Header>
+					<Card.Title>History</Card.Title>
+				</Card.Header>
+				<Card.Content></Card.Content>
+			</Card.Root>
+		</button>
 		<Card.Root class="w-1/2">
 			<Card.Header>
 				<Card.Title>Settings</Card.Title>

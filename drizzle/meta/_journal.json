@@ -1,82 +1,54 @@
 {
   "version": "7",
-  "dialect": "postgresql",
+  "dialect": "sqlite",
   "entries": [
     {
       "idx": 0,
-      "version": "7",
-      "when": 1735615317587,
-      "tag": "0000_early_eternals",
+      "version": "6",
+      "when": 1736669974057,
+      "tag": "0000_spooky_taskmaster",
       "breakpoints": true
     },
     {
       "idx": 1,
-      "version": "7",
-      "when": 1735615445647,
-      "tag": "0001_blue_chimera",
+      "version": "6",
+      "when": 1736685772226,
+      "tag": "0001_wonderful_raza",
       "breakpoints": true
     },
     {
       "idx": 2,
-      "version": "7",
-      "when": 1735615629978,
-      "tag": "0002_lively_runaways",
+      "version": "6",
+      "when": 1736685843778,
+      "tag": "0002_clammy_wild_child",
       "breakpoints": true
     },
     {
       "idx": 3,
-      "version": "7",
-      "when": 1735615774968,
-      "tag": "0003_tricky_invaders",
+      "version": "6",
+      "when": 1736686779981,
+      "tag": "0003_misty_doctor_faustus",
       "breakpoints": true
     },
     {
       "idx": 4,
-      "version": "7",
-      "when": 1735616645470,
-      "tag": "0004_milky_chat",
+      "version": "6",
+      "when": 1736686862998,
+      "tag": "0004_nervous_flatman",
       "breakpoints": true
     },
     {
       "idx": 5,
-      "version": "7",
-      "when": 1735616731700,
-      "tag": "0005_stale_major_mapleleaf",
+      "version": "6",
+      "when": 1736689850045,
+      "tag": "0005_square_malcolm_colcord",
       "breakpoints": true
     },
     {
       "idx": 6,
-      "version": "7",
-      "when": 1735616772175,
-      "tag": "0006_fat_shinko_yamashiro",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "7",
-      "when": 1735616848781,
-      "tag": "0007_first_stone_men",
-      "breakpoints": true
-    },
-    {
-      "idx": 8,
-      "version": "7",
-      "when": 1735616865280,
-      "tag": "0008_cold_owl",
-      "breakpoints": true
-    },
-    {
-      "idx": 9,
-      "version": "7",
-      "when": 1735616939121,
-      "tag": "0009_faulty_timeslip",
-      "breakpoints": true
-    },
-    {
-      "idx": 10,
-      "version": "7",
-      "when": 1735624058719,
-      "tag": "0010_moaning_electro",
+      "version": "6",
+      "when": 1736692878456,
+      "tag": "0006_petite_franklin_richards",
       "breakpoints": true
     }
   ]

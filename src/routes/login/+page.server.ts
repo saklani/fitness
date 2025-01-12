@@ -1,10 +1,10 @@
 import { hash, verify } from '@node-rs/argon2';
 import { encodeBase32LowerCase } from '@oslojs/encoding';
 import { fail, redirect } from '@sveltejs/kit';
-import { eq } from 'drizzle-orm';
+import { eq } from 'drizzle-orm/sql';
 import * as auth from '$lib/server/auth';
-import { db } from '$lib/server/db';
-import * as table from '$lib/server/db/schema';
+import { db } from '$lib/db';
+import * as table from '$lib/db/schema';
 import type { Actions, PageServerLoad } from './$types';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
@@ -21,6 +21,7 @@ export const load: PageServerLoad = async (event) => {
 
 export const actions: Actions = {
 	login: async (event) => {
+		console.log("login");
 		const form = await superValidate(event, zod(formSchema));
 		if (!form.valid) {
 			throw fail(400, {
@@ -28,7 +29,6 @@ export const actions: Actions = {
 			});
 		}
 		const { email, password } = form.data;
-		console.log(email, password);
 
 		const results = await db
 			.select()

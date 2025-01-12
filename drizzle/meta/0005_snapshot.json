@@ -1,321 +1,388 @@
 {
-  "id": "b38582f4-77e1-42a8-b939-2b73918228ca",
-  "prevId": "1d5b0459-713f-4f9e-9fdf-08168f8fd490",
-  "version": "7",
-  "dialect": "postgresql",
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "f423acbc-6a9d-41df-913b-afe6cfb9075f",
+  "prevId": "e04a00bb-7fa3-40f1-a899-a90132b93cab",
   "tables": {
-    "public.exercise": {
+    "exercise": {
       "name": "exercise",
-      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "text",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "name": {
           "name": "name",
-          "type": "varchar(58)",
+          "type": "text(58)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "force": {
           "name": "force",
-          "type": "varchar(6)",
+          "type": "text(6)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "level": {
           "name": "level",
-          "type": "varchar(12)",
+          "type": "text(12)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "mechanic": {
           "name": "mechanic",
-          "type": "varchar(9)",
+          "type": "text(9)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "equipment": {
           "name": "equipment",
-          "type": "varchar(13)",
+          "type": "text(13)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "primarymuscles0": {
-          "name": "primarymuscles0",
-          "type": "varchar(11)",
+        "primaryMuscles0": {
+          "name": "primaryMuscles0",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "instructions0": {
           "name": "instructions0",
-          "type": "varchar(744)",
+          "type": "text(744)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions1": {
           "name": "instructions1",
-          "type": "varchar(681)",
+          "type": "text(681)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions2": {
           "name": "instructions2",
-          "type": "varchar(640)",
+          "type": "text(640)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions3": {
           "name": "instructions3",
-          "type": "varchar(663)",
+          "type": "text(663)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions4": {
           "name": "instructions4",
-          "type": "varchar(695)",
+          "type": "text(695)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "category": {
           "name": "category",
-          "type": "varchar(21)",
+          "type": "text(21)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "images0": {
           "name": "images0",
-          "type": "varchar(64)",
+          "type": "text(64)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "images1": {
           "name": "images1",
-          "type": "varchar(64)",
+          "type": "text(64)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
-        "secondarymuscles0": {
-          "name": "secondarymuscles0",
-          "type": "varchar(11)",
+        "secondaryMuscles0": {
+          "name": "secondaryMuscles0",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles1": {
-          "name": "secondarymuscles1",
-          "type": "varchar(11)",
+        "secondaryMuscles1": {
+          "name": "secondaryMuscles1",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles2": {
-          "name": "secondarymuscles2",
-          "type": "varchar(11)",
+        "secondaryMuscles2": {
+          "name": "secondaryMuscles2",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles3": {
-          "name": "secondarymuscles3",
-          "type": "varchar(11)",
+        "secondaryMuscles3": {
+          "name": "secondaryMuscles3",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles4": {
-          "name": "secondarymuscles4",
-          "type": "varchar(11)",
+        "secondaryMuscles4": {
+          "name": "secondaryMuscles4",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles5": {
-          "name": "secondarymuscles5",
-          "type": "varchar(11)",
+        "secondaryMuscles5": {
+          "name": "secondaryMuscles5",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles6": {
-          "name": "secondarymuscles6",
-          "type": "varchar(11)",
+        "secondaryMuscles6": {
+          "name": "secondaryMuscles6",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles7": {
-          "name": "secondarymuscles7",
-          "type": "varchar(11)",
+        "secondaryMuscles7": {
+          "name": "secondaryMuscles7",
+          "type": "text(11)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles8": {
-          "name": "secondarymuscles8",
-          "type": "varchar(10)",
+        "secondaryMuscles8": {
+          "name": "secondaryMuscles8",
+          "type": "text(10)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
-        "secondarymuscles9": {
-          "name": "secondarymuscles9",
-          "type": "varchar(7)",
+        "secondaryMuscles9": {
+          "name": "secondaryMuscles9",
+          "type": "text(7)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions5": {
           "name": "instructions5",
-          "type": "varchar(568)",
+          "type": "text(568)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions6": {
           "name": "instructions6",
-          "type": "varchar(276)",
+          "type": "text(276)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions7": {
           "name": "instructions7",
-          "type": "varchar(406)",
+          "type": "text(406)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions8": {
           "name": "instructions8",
-          "type": "varchar(162)",
+          "type": "text(162)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions9": {
           "name": "instructions9",
-          "type": "varchar(165)",
+          "type": "text(165)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions10": {
           "name": "instructions10",
-          "type": "varchar(89)",
+          "type": "text(89)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions11": {
           "name": "instructions11",
-          "type": "varchar(233)",
+          "type": "text(233)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions12": {
           "name": "instructions12",
-          "type": "varchar(163)",
+          "type": "text(163)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions13": {
           "name": "instructions13",
-          "type": "varchar(105)",
+          "type": "text(105)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions14": {
           "name": "instructions14",
-          "type": "varchar(241)",
+          "type": "text(241)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions15": {
           "name": "instructions15",
-          "type": "varchar(155)",
+          "type": "text(155)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions16": {
           "name": "instructions16",
-          "type": "varchar(70)",
+          "type": "text(70)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions17": {
           "name": "instructions17",
-          "type": "varchar(194)",
+          "type": "text(194)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions18": {
           "name": "instructions18",
-          "type": "varchar(112)",
+          "type": "text(112)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions19": {
           "name": "instructions19",
-          "type": "varchar(67)",
+          "type": "text(67)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions20": {
           "name": "instructions20",
-          "type": "varchar(153)",
+          "type": "text(153)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions21": {
           "name": "instructions21",
-          "type": "varchar(86)",
+          "type": "text(86)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions22": {
           "name": "instructions22",
-          "type": "varchar(74)",
+          "type": "text(74)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         },
         "instructions23": {
           "name": "instructions23",
-          "type": "varchar(75)",
+          "type": "text(75)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
-    "public.plan": {
+    "plan": {
       "name": "plan",
-      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "integer",
           "primaryKey": true,
           "notNull": true,
-          "default": "gen_random_uuid()"
+          "autoincrement": true
         },
         "name": {
           "name": "name",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "plan_user_id_user_id_fk": {
+          "name": "plan_user_id_user_id_fk",
+          "tableFrom": "plan",
+          "tableTo": "user",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
-    "public.plan_session": {
+    "plan_session": {
       "name": "plan_session",
-      "schema": "",
       "columns": {
         "plan_id": {
           "name": "plan_id",
-          "type": "uuid",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "exercise_id": {
           "name": "exercise_id",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {},
@@ -348,29 +415,32 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
-    "public.session": {
+    "session": {
       "name": "session",
-      "schema": "",
       "columns": {
         "id": {
           "name": "id",
           "type": "text",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "user_id": {
           "name": "user_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "expires_at": {
           "name": "expires_at",
-          "type": "timestamp with time zone",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {},
@@ -390,69 +460,88 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
-    "public.user": {
+    "user": {
       "name": "user",
-      "schema": "",
       "columns": {
         "id": {
           "name": "id",
           "type": "text",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "email": {
           "name": "email",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "password_hash": {
           "name": "password_hash",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         }
       },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {
+      "indexes": {
         "user_email_unique": {
           "name": "user_email_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "email"
-          ]
+          ],
+          "isUnique": true
         }
-      }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
-    "public.workout": {
+    "workout": {
       "name": "workout",
-      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
         },
         "time": {
           "name": "time",
-          "type": "bigint",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "date": {
+          "name": "date",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
         }
       },
       "indexes": {},
       "foreignKeys": {
-        "workout_id_user_id_fk": {
-          "name": "workout_id_user_id_fk",
+        "workout_user_id_user_id_fk": {
+          "name": "workout_user_id_user_id_fk",
           "tableFrom": "workout",
           "tableTo": "user",
           "columnsFrom": [
-            "id"
+            "user_id"
           ],
           "columnsTo": [
             "id"
@@ -462,23 +551,25 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
-    "public.workout_session": {
+    "workout_session": {
       "name": "workout_session",
-      "schema": "",
       "columns": {
         "workout_id": {
           "name": "workout_id",
-          "type": "uuid",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "exercise_id": {
           "name": "exercise_id",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {},
@@ -511,14 +602,18 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     }
   },
+  "views": {},
   "enums": {},
-  "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
   }
 }

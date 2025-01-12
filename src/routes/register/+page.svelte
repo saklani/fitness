@@ -25,7 +25,6 @@
 				errorMessage = "";
 				await new Promise((resolve) => setTimeout(resolve, 1500));
 			} catch (err) {
-				// Handle errors
 				errorMessage = "Something went wrong. Please try again.";
 			} finally {
 				isLoading = false;
@@ -33,7 +32,6 @@
 		},
 	});
 
-	// Grab form data and the `enhance` action for progressive enhancement
 	const { form: formData, enhance } = form;
 </script>
 

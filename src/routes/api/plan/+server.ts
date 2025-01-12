@@ -1,6 +1,6 @@
 import { error, json } from '@sveltejs/kit';
-import { db } from '$lib/server/db/index.js';
-import { plan, planSession } from '$lib/server/db/schema.js';
+import { db } from '$lib/db/index.js';
+import { plan, planSession } from '$lib/db/schema.js';
 import { eq } from 'drizzle-orm';
 
 type Plan = {

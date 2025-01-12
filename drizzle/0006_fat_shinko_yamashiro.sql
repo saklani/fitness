@@ -1,1 +1,0 @@
-ALTER TABLE "workout_session" ADD PRIMARY KEY ("workout_id");
