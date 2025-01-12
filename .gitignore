@@ -24,4 +24,6 @@ vite.config.ts.timestamp-*
 
 .idea
 drizzle
-pnpm-locak.yaml
+pnpm-lock.yaml
+.npmrc
+bun.lockb

@@ -11,7 +11,7 @@
         <Card.Title class="text-md"
             >{workout.date.toLocaleDateString()}</Card.Title
         >
-        <Card.Description><Time value={workout.time} /></Card.Description>
+        <Time value={workout.time} />
     </Card.Header>
     <Card.Content></Card.Content>
 </Card.Root>

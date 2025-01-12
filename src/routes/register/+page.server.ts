@@ -1,12 +1,12 @@
-import { hash, verify } from '@node-rs/argon2';
-import { encodeBase32LowerCase } from '@oslojs/encoding';
-import { fail, redirect } from '@sveltejs/kit';
-import * as auth from '$lib/server/auth';
 import { db } from '$lib/db';
 import * as table from '$lib/db/schema';
-import type { Actions, PageServerLoad } from '../login/$types';
+import * as auth from '$lib/server/auth';
+import { hash } from '@node-rs/argon2';
+import { encodeBase32LowerCase } from '@oslojs/encoding';
+import { fail, redirect } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
+import type { Actions, PageServerLoad } from '../login/$types';
 import { formSchema } from './schema';
 
 export const load: PageServerLoad = async (event) => {
