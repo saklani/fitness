@@ -23,7 +23,6 @@
     "@sveltejs/kit": "^2.15.1",
     "@sveltejs/vite-plugin-svelte": "^4.0.4",
     "@types/node": "^22.10.2",
-    "@types/pg": "^8.11.10",
     "autoprefixer": "^10.4.20",
     "bits-ui": "^0.22.0",
     "clsx": "^2.1.1",
@@ -47,7 +46,6 @@
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",
-    "@neondatabase/serverless": "^0.10.4",
     "@node-rs/argon2": "^1.8.3",
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
