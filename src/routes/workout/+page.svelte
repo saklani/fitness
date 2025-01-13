@@ -1,5 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
+    import { type TExercise, type TWorkoutExercise } from "$lib/db/schema";
     import Exercise from "@app/components/Exercise.svelte";
     import Timer from "@app/components/Timer.svelte";
     import { localStore } from "@app/localStore.svelte.js";
@@ -7,8 +8,6 @@
     import { Input } from "@app/ui/input";
     import * as Sheet from "@app/ui/sheet";
     import Fuse from "fuse.js";
-
-    type TExercise = Partial<{ id: string; name: string }>;
 
     const fuseOptions = {
         isCaseSensitive: false,
@@ -21,7 +20,10 @@
 
     const { data } = $props();
 
-    const session = localStore<TExercise[]>("workout", []);
+    const session = localStore<Partial<TWorkoutExercise & { name: string }>[]>(
+        "workout",
+        [],
+    );
 
     const fuse = new Fuse<TExercise>(data.exercises, fuseOptions);
 
@@ -30,20 +32,30 @@
     const result = $derived(fuse.search(searchPattern));
 
     function addExercise(exercise: TExercise) {
-        if (!session.value.includes(exercise)) {
-            session.value.push(exercise);
+        if (
+            session.value.findIndex((e) => e.exerciseId === exercise.id) === -1
+        ) {
+            session.value.push({
+                exerciseId: exercise.id,
+                name: exercise.name,
+                sets: [{ index: 1, previous: "", repetitions: 0, weight: 0 }],
+            });
         }
     }
 
-    function removeExercise(exercise: TExercise) {
-        let removeIndex = session.value.indexOf(exercise);
-        session.value.splice(removeIndex, 1);
+    function removeExercise(exerciseId: string) {
+        const index = session.value.findIndex(
+            (e) => e.exerciseId === exerciseId,
+        );
+        if (index !== -1) {
+            session.value.splice(index, 1);
+        }
     }
 
     async function save() {
         await fetch("/api/workout", {
             body: JSON.stringify({
-                exercises: session.value.map((e) => e.id!),
+                exercises: session.value,
                 time: localStorage.getItem("timer"),
             }),
             method: "post",
@@ -62,6 +74,32 @@
         goto("/");
         session.clear();
     }
+
+    function addSet(eId: string) {
+        const eIndex = session.value.findIndex((e) => e.exerciseId === eId);
+        const exercise = session.value[eIndex];
+        const sets = exercise.sets!;
+        let previous = sets[sets.length - 1];
+        let new_set = {
+            ...previous,
+            index: previous ? previous.index + 1 : 1,
+        };
+        sets.push(new_set);
+
+        exercise.sets = sets;
+        session.value[eIndex] = exercise;
+    }
+
+    function removeSet(eId: string, index: number) {
+        const eIndex = session.value.findIndex((e) => e.exerciseId === eId);
+        const deleteIndex = session.value[eIndex].sets!.findIndex(
+            (s) => s.index == index,
+        );
+        session.value[eIndex].sets!.splice(deleteIndex, 1);
+        session.value[eIndex].sets!.forEach((set, i) => {
+            set.index = i + 1;
+        });
+    }
 </script>
 
 <div class="flex items-center justify-between h-[3rem]">
@@ -76,8 +114,12 @@
 >
     {#each session.value as exercise}
         <Exercise
+            eId={exercise.exerciseId}
+            {addSet}
+            {removeSet}
             name={exercise.name}
-            removeExercise={() => removeExercise(exercise)}
+            sets={exercise.sets}
+            removeExercise={() => removeExercise(exercise.exerciseId!)}
         />
     {/each}
 </div>

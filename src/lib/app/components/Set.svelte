@@ -2,7 +2,7 @@
     import { Input } from "@app/ui/input";
 
     let {
-        serial,
+        index: serial,
         previous = "-",
         weight = $bindable(),
         reps = $bindable(),

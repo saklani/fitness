@@ -1,9 +1,10 @@
 import { error, json } from '@sveltejs/kit';
 import { db } from '$lib/db';
-import { workout, workoutSession } from '$lib/db/schema.js';
+import { workout, workoutExercise, type TWorkoutExercise } from '$lib/db/schema.js';
+
 
 type Workout = {
-    exercises: number[];
+    exercises: Partial<TWorkoutExercise>[];
     time: number;
 }
 
@@ -15,11 +16,17 @@ export async function POST({ locals, request }) {
     const { exercises, time }: Workout = await request.json();
 
     try {
-        const res = await db.insert(workout).values({ userId, time, date: new Date() }).returning({ id: workout.id });
-        const id = res[0].id;
-        for (const exerciseId of exercises) {
-            await db.insert(workoutSession).values({ workoutId: id, exerciseId: exerciseId })
-        }
+        const id = await db.transaction(async (tx) => {
+            const w = await tx.insert(workout).values({ userId, time, date: new Date() }).returning();
+            for (const exercise of exercises) {
+                await tx.insert(workoutExercise).values({
+                    workoutId: w[0].id,
+                    exerciseId: exercise.exerciseId!,
+                    sets: exercise.sets,
+                });
+            }
+            return w[0].id;
+        });
 
         return json({ id }, { status: 201 });
 

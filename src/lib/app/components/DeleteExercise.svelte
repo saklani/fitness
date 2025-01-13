@@ -1,11 +1,13 @@
 <script lang="ts">
     import * as AlertDialog from "@app/ui/alert-dialog";
-
+    import { XIcon } from "lucide-svelte";
     const { removeExercise } = $props();
 </script>
 
 <AlertDialog.Root>
-    <AlertDialog.Trigger>x</AlertDialog.Trigger>
+    <AlertDialog.Trigger  class="flex w-[36px] h-[36px] rounded items-center justify-center  hover:bg-slate-100">
+        <XIcon size={18} />
+    </AlertDialog.Trigger>
     <AlertDialog.Content>
         <AlertDialog.Header>
             <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>

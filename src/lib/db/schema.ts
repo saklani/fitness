@@ -1,4 +1,5 @@
-import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { relations, sql } from 'drizzle-orm';
+import { blob, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 export const user = sqliteTable('user', {
     id: text('id').primaryKey(),
@@ -75,25 +76,43 @@ export const workout = sqliteTable("workout", {
     date: integer('date', { mode: "timestamp" }).notNull(),
 });
 
-export const workoutSession = sqliteTable('workout_session', {
-    workoutId: integer('workout_id').notNull().references(() => workout.id),
-    exerciseId: integer("exercise_id").notNull().references(() => exercise.id),
+export const workoutExercise = sqliteTable("workout_exercise", {
+    id: integer('id').primaryKey({ autoIncrement: true }),
+    workoutId: integer('workout_id').references(() => workout.id),
+    exerciseId: text('exercise_id').notNull().references(() => exercise.id),
+    sets: blob({ mode: 'json' }).$type<{ index: number, previous: string, repetitions: number; weight: number; }[]>().default([]).notNull(),
 });
+
+export const workoutRelation = relations(workout, ({ many }) => ({
+    exercises: many(workoutExercise)
+}));
+
+export const workoutExerciseRelations = relations(workoutExercise, ({ one }) => ({
+    workout: one(workout, {
+        fields: [workoutExercise.workoutId],
+        references: [workout.id],
+    }),
+    exercise: one(exercise, {
+        fields: [workoutExercise.exerciseId],
+        references: [exercise.id],
+    }),
+}));
 
 export const plan = sqliteTable("plan", {
     id: integer('id').primaryKey({ autoIncrement: true }),
     name: text("name").notNull(),
     userId: text('user_id').notNull().references(() => user.id),
+    exerciseIds: text('exercise_ids', { mode: "json" }).notNull()
+        .$type<string[]>().default(sql`[]`),
 });
 
-export const planSession = sqliteTable('plan_session', {
-    planId: integer('plan_id').notNull().references(() => plan.id),
-    exerciseId: integer("exercise_id").notNull().references(() => exercise.id),
-});
+
 export type Session = typeof session.$inferSelect;
 
 export type User = typeof user.$inferSelect;
 
-export type Exercise = typeof exercise.$inferSelect;
+export type TExercise = typeof exercise.$inferSelect;
 
-export type Workout = typeof workout.$inferSelect;
+export type TWorkoutExercise = typeof workoutExercise.$inferSelect;
+
+export type TWorkout = typeof workout.$inferSelect
