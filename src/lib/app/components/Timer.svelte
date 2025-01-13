@@ -1,19 +1,21 @@
 <script lang="ts">
     import { localStore } from "@app/localStore.svelte";
-    import { onDestroy } from "svelte";
+    import { onMount } from "svelte";
     import Time from "./Time.svelte";
 
-    const timer = localStore("timer", 0);
+    const timer = localStore("timer", (new Date()).toString());
 
-    $effect(() => {
+    let value = $state(0);
+
+    onMount(() => {
         setInterval(() => {
-            timer.value += 1;
+            const currentTime = new Date();
+            value = currentTime.getTime() / 1000 - Date.parse(timer.value)  / 1000;
         }, 1000);
     });
 
-    onDestroy(() => timer.clear());
 </script>
 
-{#key timer.value}
-    <Time value={timer.value} />
+{#key value}
+    <Time {value} />
 {/key}

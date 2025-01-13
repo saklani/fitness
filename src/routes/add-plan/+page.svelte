@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
+	import { goto, invalidateAll } from "$app/navigation";
 	import { localStore } from "@app/localStore.svelte.js";
 	import { Button } from "@app/ui/button";
 	import * as Card from "@app/ui/card";
@@ -7,7 +7,7 @@
 	import * as Sheet from "@app/ui/sheet";
 	import Fuse from "fuse.js";
 
-	type TExercise = Partial<{ id: number; name: string }>;
+	type TExercise = Partial<{ id: string; name: string }>;
 
 	const fuseOptions = {
 		isCaseSensitive: false,
@@ -51,15 +51,15 @@
 		if (plan.value.length > 0) {
 			plan.value = [];
 		}
-		goto("/");
+		await goto("/", { invalidateAll: true });
 		plan.clear();
 	}
 
-	function cancel() {
+	async function cancel() {
 		if (plan.value.length > 0) {
 			plan.value = [];
 		}
-		goto("/");
+		await goto("/");
 		plan.clear();
 	}
 </script>
@@ -78,9 +78,14 @@
 	>
 		{#each plan.value as exercise}
 			<Card.Root>
-				<Card.Content class="flex flex-row items-center justify-between">
+				<Card.Content
+					class="flex flex-row items-center justify-between"
+				>
 					<Card.Title>{exercise.name}</Card.Title>
-					<Button variant="destructive" onclick={() => removeExercise(exercise)}>
+					<Button
+						variant="destructive"
+						onclick={() => removeExercise(exercise)}
+					>
 						Delete
 					</Button>
 				</Card.Content>

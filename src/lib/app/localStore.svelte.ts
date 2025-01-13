@@ -18,6 +18,14 @@ export class LocalStore<T> {
     });
   }
 
+  check(key: string): boolean {
+    if (browser) {
+      const item = localStorage.getItem(key);
+      return item !== null && JSON.parse(item).length > 0;
+    }
+    return false;
+  }
+
   serialize(value: T): string {
     return JSON.stringify(value);
   }
