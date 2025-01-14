@@ -19,7 +19,8 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<h1 class="text-xl font-bold">Login to your account</h1>
+<h1 class="text-2xl font-bold">Login</h1>
+<h1 class="text-gray-400 text-xs">Enter your email below to login to your account</h1>
 <form method="POST" action="?/login" use:enhance>
 	<div class="space-y-[8px] my-[12px]">
 		<Form.Field {form} name="email">

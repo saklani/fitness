@@ -13,6 +13,13 @@ export const session = sqliteTable("session", {
     expiresAt: integer('expires_at', { mode: 'timestamp' }).notNull()
 });
 
+
+export const passwordReset = sqliteTable("password_reset", {
+    id: integer('id').primaryKey({autoIncrement: true}),
+    userId: text('user_id').notNull().references(() => user.id),
+    code: text('code').notNull(),
+});
+
 export const exercise = sqliteTable("exercise", {
     id: text("id").notNull().primaryKey(),
     name: text("name", { length: 58 }).notNull(),

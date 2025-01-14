@@ -35,28 +35,16 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<h1 class="text-2xl font-bold">Register</h1>
-<h1 class="text-gray-400 text-xs">Enter your email below to create your account</h1>
+<h1 class="text-2xl font-bold">Forgot Password</h1>
+<h1 class="text-gray-400 text-xs">Send a password reset link to your email</h1>
 
-<form method="POST" action="?/register" use:enhance>
+<form method="POST" action="?/send_reset_link" use:enhance>
 	<div class="space-y-[8px] my-[12px]">
 		<!-- Email Field -->
 		<Form.Field {form} name="email">
 			<Form.Control let:attrs>
 				<Form.Label>Email</Form.Label>
 				<Input {...attrs} bind:value={$formData.email} />
-			</Form.Control>
-			<Form.FieldErrors />
-		</Form.Field>
-		<!-- Password Field -->
-		<Form.Field {form} name="password">
-			<Form.Control let:attrs>
-				<Form.Label>Password</Form.Label>
-				<Input
-					{...attrs}
-					type="password"
-					bind:value={$formData.password}
-				/>
 			</Form.Control>
 			<Form.FieldErrors />
 		</Form.Field>
@@ -67,7 +55,7 @@
 		{#if isLoading}
 			Loading...
 		{:else}
-			Register
+			Send Reset Link
 		{/if}
 	</Form.Button>
 
@@ -76,8 +64,3 @@
 		<p class="text-red-600">{errorMessage}</p>
 	{/if}
 </form>
-
-<p class="text-sm font-semibold text-gray-500">
-	Already have an account?
-	<a class="text-blue-600 hover:underline" href="/login">Login</a>
-</p>
