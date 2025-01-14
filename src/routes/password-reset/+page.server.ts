@@ -29,13 +29,13 @@ export const actions: Actions = {
 			throw fail(400, { form });
 		}
 		const { email } = form.data;
-
+		// TODO: Actually send the link
 		try {
 			const user = await db.query.user.findFirst({ where: eq(table.user.id, event.locals.user?.id!) });
 			if (user) {
-				await db.insert(table.passwordReset).values({userId: user?.id, code: randomUUID()});
+				await db.insert(table.passwordReset).values({ userId: user?.id, code: randomUUID() });
 			}
-			return {form};
+			return { form };
 		} catch (e) {
 			return fail(500, { message: 'An error has occurred' });
 		}

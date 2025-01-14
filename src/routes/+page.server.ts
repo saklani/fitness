@@ -1,16 +1,16 @@
-import * as auth from '$lib/server/auth';
-import { fail, json, redirect } from '@sveltejs/kit';
-import type { Actions, PageServerLoad } from './$types';
 import { db } from '$lib/db';
 import { plan, user } from '$lib/db/schema';
-import { and, eq } from 'drizzle-orm';
+import * as auth from '$lib/server/auth';
+import { fail, redirect } from '@sveltejs/kit';
+import { eq } from 'drizzle-orm';
+import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {
 		return redirect(302, '/login');
 	}
 
-	return { user: event.locals.user, plans: await db.query.plan.findMany(), exercises: await db.query.exercise.findMany() };
+	return { user: event.locals.user, plans: await db.query.plan.findMany({where: eq(user.id, plan.userId)}), exercises: await db.query.exercise.findMany() };
 };
 
 export const actions: Actions = {
