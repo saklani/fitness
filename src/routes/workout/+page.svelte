@@ -110,7 +110,7 @@
     </div>
 </div>
 <div
-    class="bg-gray-100 border-1 border flex flex-col h-[calc(100vh-3rem)] gap-[4px] p-[2px] rounded-sm overflow-y-scroll"
+    class="bg-gray-100 border-1 border flex flex-col h-[calc(100vh-9.25rem)] gap-[4px] p-[2px] rounded-sm overflow-y-scroll"
 >
     {#each session.value as exercise}
         <Exercise

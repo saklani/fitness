@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { goto, invalidate, invalidateAll } from "$app/navigation";
+	import { goto, invalidateAll } from "$app/navigation";
+	import type { TExercise, TWorkoutExercise } from "$lib/db/schema";
+	import { localStore } from "@app/localStore.svelte";
 	import Button from "@app/ui/button/button.svelte";
 	import * as Card from "@app/ui/card";
+	import * as DropdownMenu from "@app/ui/dropdown-menu";
 	import Separator from "@app/ui/separator/separator.svelte";
-	import { HistoryIcon } from "lucide-svelte";
+	import { HistoryIcon, XIcon, CircleUserRound } from "lucide-svelte";
 	import type { PageData } from "./$types";
-	import { localStore } from "@app/localStore.svelte";
-	import type { TExercise, TWorkoutExercise } from "$lib/db/schema";
-	import { XIcon } from "lucide-svelte";
 
 	const session = localStore<Partial<TWorkoutExercise & { name: string }>[]>(
 		"workout",
@@ -29,20 +29,31 @@
 </script>
 
 <div class="flex flex-col gap-[1.5rem]">
-	<div class="flex items-center justify-between">
-		<h1 class="font-semibold text-sm">Account: {data.user.email}</h1>
-		<form method="POST" action="?/logout">
-			<Button variant="destructive" type="submit">Sign Out</Button>
-		</form>
+	<div class="flex items-center justify-between px-2">
+		<h1 class="font-semibold text-sm">{new Date().toDateString()}</h1>
+		<DropdownMenu.Root>
+			<DropdownMenu.Trigger
+				><Button variant="outline"
+					><CircleUserRound strokeWidth={"1.2"} /></Button
+				></DropdownMenu.Trigger
+			>
+			<DropdownMenu.Content>
+				<DropdownMenu.Group>
+					<DropdownMenu.Label>{data.user.email}</DropdownMenu.Label>
+					<DropdownMenu.Separator />
+					<form method="POST" action="?/logout">
+						<Button class="w-full" variant="destructive" type="submit">Logout</Button>
+					</form>
+				</DropdownMenu.Group>
+			</DropdownMenu.Content>
+		</DropdownMenu.Root>
 	</div>
-	<Separator />
 	{#if session.check("timer")}
 		<Button on:click={() => goto("/workout")}>Continue</Button>
 	{:else}
 		<Button on:click={() => goto("/workout")}>Start empty workout</Button>
 	{/if}
 
-	<Separator />
 	<div class="flex flex-col gap-2">
 		<div class="flex items-center justify-between gap-2">
 			<h1 class="text-xl">Workout Plans</h1>
@@ -68,7 +79,7 @@
 									method: "delete",
 									body: JSON.stringify({ id: plan.id }),
 								});
-								
+
 								await invalidateAll();
 							}}
 						>
