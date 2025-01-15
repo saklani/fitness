@@ -10,7 +10,7 @@ export const load: PageServerLoad = async (event) => {
 		return redirect(302, '/login');
 	}
 
-	return { user: event.locals.user, plans: await db.query.plan.findMany({where: eq(event.locals.user.id!, plan.userId)}), exercises: await db.query.exercise.findMany() };
+	return { user: event.locals.user, plans: await db.query.plan.findMany({where: eq(plan.userId, event.locals.user.id!)}), exercises: await db.query.exercise.findMany() };
 };
 
 export const actions: Actions = {
