@@ -1,5 +1,5 @@
 import { db } from '$lib/db';
-import { plan, user } from '$lib/db/schema';
+import { plan } from '$lib/db/schema';
 import * as auth from '$lib/server/auth';
 import { fail, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
@@ -10,7 +10,7 @@ export const load: PageServerLoad = async (event) => {
 		return redirect(302, '/login');
 	}
 
-	return { user: event.locals.user, plans: await db.query.plan.findMany({where: eq(user.id, plan.userId)}), exercises: await db.query.exercise.findMany() };
+	return { user: event.locals.user, plans: await db.query.plan.findMany({where: eq(event.locals.user.id!, plan.userId)}), exercises: await db.query.exercise.findMany() };
 };
 
 export const actions: Actions = {

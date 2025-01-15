@@ -32,17 +32,19 @@
 	<div class="flex items-center justify-between px-2">
 		<h1 class="font-semibold text-sm">{new Date().toDateString()}</h1>
 		<DropdownMenu.Root>
-			<DropdownMenu.Trigger
-				><Button variant="outline"
-					><CircleUserRound strokeWidth={"1.2"} /></Button
-				></DropdownMenu.Trigger
-			>
+			<DropdownMenu.Trigger>
+				<CircleUserRound strokeWidth={"1.2"} />
+			</DropdownMenu.Trigger>
 			<DropdownMenu.Content>
 				<DropdownMenu.Group>
 					<DropdownMenu.Label>{data.user.email}</DropdownMenu.Label>
 					<DropdownMenu.Separator />
 					<form method="POST" action="?/logout">
-						<Button class="w-full" variant="destructive" type="submit">Logout</Button>
+						<Button
+							class="w-full"
+							variant="destructive"
+							type="submit">Logout</Button
+						>
 					</form>
 				</DropdownMenu.Group>
 			</DropdownMenu.Content>
