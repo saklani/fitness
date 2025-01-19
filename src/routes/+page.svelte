@@ -44,7 +44,6 @@
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger>
 				<CircleUserRound
-					color={"white"}
 					strokeWidth={"1.2"}
 					size={28}
 				/>
@@ -87,7 +86,7 @@
 					<Card.Header
 						class="flex-row w-full items-center justify-between"
 					>
-						<Card.Title>{plan.name}</Card.Title>
+						<Card.Title class="text-black">{plan.name}</Card.Title>
 						<Button
 							variant="ghost"
 							onclick={async () => {
@@ -134,7 +133,7 @@
 					<Card.Content
 						class="h-[100px] flex justify-center items-center"
 					>
-						No workout plans
+						NO WORKOUT PLANS
 					</Card.Content>
 					<Card.Footer></Card.Footer>
 				</Card.Root>
@@ -144,7 +143,7 @@
 	<Separator />
 	<div class="gap-2">
 		<button class="w-1/2" onclick={() => goto("/history")}>
-			<Card.Root class="hover:bg-primary">
+			<Card.Root class="hover:bg-primary/40">
 				<Card.Header></Card.Header>
 				<CardContent class="flex flex-row gap-[12px] items-center p-[24px]">
 					<HistoryIcon size={"24px"} />

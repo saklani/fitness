@@ -64,17 +64,17 @@
 	}
 </script>
 
-<div class="flex flex-col h-[100vh] gap-2 p-2">
+<div class="flex flex-col h-[100vh] gap-2 p-2 w-full">
 	<div class="flex items-center justify-between h-[3rem]">
-		<h1>Create a plan</h1>
+		<h1 class="title text-xl">Create A Plan</h1>
 		<div class="flex gap-1">
-			<Button variant="destructive" onclick={cancel}>Cancel</Button>
-			<Button onclick={save}>Save</Button>
+			<Button class="w-[128px]" variant="destructive" onclick={cancel}>Cancel</Button>
+			<Button class="w-[128px]" onclick={save}>Save</Button>
 		</div>
 	</div>
 	<Input placeholder="Workout Name" bind:value={name} />
 	<div
-		class="bg-gray-100 border-1 border flex flex-col h-[calc(100vh-3rem)] gap-[4px] p-[2px] rounded-sm overflow-y-scroll"
+		class="border-[2px] border-black flex flex-col h-[calc(100vh-3rem)] gap-[4px] p-[2px] rounded-[2px] overflow-y-scroll"
 	>
 		{#each plan.value as exercise}
 			<Card.Root>
@@ -83,6 +83,7 @@
 				>
 					<Card.Title>{exercise.name}</Card.Title>
 					<Button
+					class="w-[128px]"
 						variant="destructive"
 						onclick={() => removeExercise(exercise)}
 					>

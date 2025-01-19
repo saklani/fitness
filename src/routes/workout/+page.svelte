@@ -102,8 +102,8 @@
     }
 </script>
 
-<div class="flex flex-col w-full">
-    <div class="flex items-center justify-between h-[50px] px-[8px]">
+<div class="flex flex-col w-full px-[8px] gap-[8px]">
+    <div class="flex items-center justify-between h-[50px]">
         <Timer />
         <div class="flex gap-1">
             <Button variant="destructive" class="w-[128px]" onclick={cancel}>
@@ -113,7 +113,7 @@
         </div>
     </div>
     <div
-        class="bg-gray-100 border-1 border flex flex-col h-[calc(100vh-82px)] gap-[4px] p-[2px] rounded-sm overflow-y-scroll"
+        class="border-[2px] border-black flex flex-col h-[calc(100vh-120px)] gap-[4px] p-[2px] rounded-[2px] overflow-y-scroll"
     >
         {#each session.value as exercise}
             <Exercise
