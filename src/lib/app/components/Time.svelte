@@ -11,6 +11,6 @@
             .padStart(2, "0");
 </script>
 
-<p class="text-xl font-bold">
+<p class="title text-xl font-light">
     {hh}:{mm}:{ss}
 </p>

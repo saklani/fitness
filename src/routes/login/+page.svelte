@@ -19,32 +19,35 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<h1 class="text-2xl font-bold">Login</h1>
-<h1 class="text-gray-400 text-xs">Enter your email below to login to your account</h1>
-<form method="POST" action="?/login" use:enhance>
-	<div class="space-y-[8px] my-[12px]">
-		<Form.Field {form} name="email">
-			<Form.Control let:attrs>
-				<Form.Label>Email</Form.Label>
-				<Input {...attrs} bind:value={$formData.email} />
-			</Form.Control>
-			<Form.FieldErrors />
-		</Form.Field>
-		<Form.Field {form} name="password">
-			<Form.Control let:attrs>
-				<Form.Label>Password</Form.Label>
-				<Input
-					{...attrs}
-					type={"password"}
-					bind:value={$formData.password}
-				/>
-			</Form.Control>
-			<Form.FieldErrors />
-		</Form.Field>
-	</div>
-	<Form.Button class="w-full mt-[8px] mb-[16px]">Login</Form.Button>
-</form>
-<p class="text-sm font-semibold text-gray-500">
-	Don't have an account?
-	<a class="text-blue-600 hover:underline" href="/register">Register</a>
-</p>
+<div class="flex flex-col w-full max-w-[400px] p-[24px]">
+	<h1 class="title">Login</h1>
+	<h2 class="subtitle">Enter your email below to login to your account</h2>
+	<form method="POST" action="?/login" use:enhance>
+		<div class="space-y-[12px] my-[36px]">
+			<Form.Field {form} name="email">
+				<Form.Control let:attrs>
+					<Form.Label>Email</Form.Label>
+					<Input {...attrs} bind:value={$formData.email} />
+				</Form.Control>
+				<Form.FieldErrors />
+			</Form.Field>
+			<Form.Field {form} name="password">
+				<Form.Control let:attrs>
+					<Form.Label>Password</Form.Label>
+					<Input
+						{...attrs}
+						type={"password"}
+						bind:value={$formData.password}
+					/>
+				</Form.Control>
+				<Form.FieldErrors />
+				<a class="text-blue-600 hover:underline text-xs" href="/password-reset">Forgot Password?</a>
+			</Form.Field>
+		</div>
+		<Form.Button class="w-full">Login</Form.Button>
+	</form>
+	<p class="text-sm font-semibold text-gray-500 my-[8px]">
+		Don't have an account?
+		<a class="text-blue-600 hover:underline" href="/register">Register</a>
+	</p>
+</div>

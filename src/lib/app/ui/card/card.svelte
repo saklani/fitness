@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class={cn("bg-card text-card-foreground rounded-sm border shadow-sm", className)}
+	class={cn("bg-card text-card-foreground rounded-[2px] border shadow-sm", className)}
 	{...$$restProps}
 >
 	<slot />

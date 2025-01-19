@@ -6,11 +6,16 @@
 
 </script>
 
-<Card.Root class="bg-gray-100">
+<Card.Root>
     <Card.Header>
         <div class="flex w-full justify-between items-center">
             <Card.Title>
-                {workout.date.toDateString()}
+                {workout.date.toLocaleDateString("en-us", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                })}
             </Card.Title>
             <Time value={workout.time} />
         </div>

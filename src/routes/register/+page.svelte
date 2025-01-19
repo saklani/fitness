@@ -35,49 +35,35 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<h1 class="text-2xl font-bold">Register</h1>
-<h1 class="text-gray-400 text-xs">Enter your email below to create your account</h1>
+<div class="flex flex-col w-full max-w-[400px] p-[24px]">
+	<h1 class="title">Register</h1>
+	<h2 class="subtitle">Enter your email below to create your account</h2>
+	<form method="POST" action="?/login" use:enhance>
+		<div class="space-y-[12px] my-[36px]">
+			<Form.Field {form} name="email">
+				<Form.Control let:attrs>
+					<Form.Label>Email</Form.Label>
+					<Input {...attrs} bind:value={$formData.email} />
+				</Form.Control>
+				<Form.FieldErrors />
+			</Form.Field>
+			<Form.Field {form} name="password">
+				<Form.Control let:attrs>
+					<Form.Label>Password</Form.Label>
+					<Input
+						{...attrs}
+						type={"password"}
+						bind:value={$formData.password}
+					/>
+				</Form.Control>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+		<Form.Button class="w-full">Register</Form.Button>
+	</form>
 
-<form method="POST" action="?/register" use:enhance>
-	<div class="space-y-[8px] my-[12px]">
-		<!-- Email Field -->
-		<Form.Field {form} name="email">
-			<Form.Control let:attrs>
-				<Form.Label>Email</Form.Label>
-				<Input {...attrs} bind:value={$formData.email} />
-			</Form.Control>
-			<Form.FieldErrors />
-		</Form.Field>
-		<!-- Password Field -->
-		<Form.Field {form} name="password">
-			<Form.Control let:attrs>
-				<Form.Label>Password</Form.Label>
-				<Input
-					{...attrs}
-					type="password"
-					bind:value={$formData.password}
-				/>
-			</Form.Control>
-			<Form.FieldErrors />
-		</Form.Field>
-	</div>
-
-	<!-- Submit Button -->
-	<Form.Button class="w-full mt-[8px] mb-[16px]" disabled={isLoading}>
-		{#if isLoading}
-			Loading...
-		{:else}
-			Register
-		{/if}
-	</Form.Button>
-
-	<!-- Display error message if there is one -->
-	{#if errorMessage}
-		<p class="text-red-600">{errorMessage}</p>
-	{/if}
-</form>
-
-<p class="text-sm font-semibold text-gray-500">
-	Already have an account?
-	<a class="text-blue-600 hover:underline" href="/login">Login</a>
-</p>
+	<p class="text-sm font-semibold text-gray-500 my-[8px]">
+		Already have an account?
+		<a class="text-blue-600 hover:underline" href="/login">Login</a>
+	</p>
+</div>

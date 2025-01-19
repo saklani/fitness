@@ -11,7 +11,7 @@
 
 <LabelPrimitive.Root
 	class={cn(
-		"flex flex-col text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 gap-[8px]",
+		"flex flex-col text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 gap-[8px] text-primary-foreground",
 		className
 	)}
 	{...$$restProps}

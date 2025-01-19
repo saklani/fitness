@@ -102,57 +102,65 @@
     }
 </script>
 
-<div class="flex items-center justify-between h-[3rem]">
-    <Timer />
-    <div class="flex gap-1">
-        <Button variant="destructive" onclick={cancel}>Cancel</Button>
-        <Button onclick={save}>Save</Button>
-    </div>
-</div>
-<div
-    class="bg-gray-100 border-1 border flex flex-col h-[calc(100vh-9.25rem)] gap-[4px] p-[2px] rounded-sm overflow-y-scroll"
->
-    {#each session.value as exercise}
-        <Exercise
-            eId={exercise.exerciseId}
-            {addSet}
-            {removeSet}
-            name={exercise.name}
-            sets={exercise.sets}
-            removeExercise={() => removeExercise(exercise.exerciseId!)}
-        />
-    {/each}
-</div>
-<Sheet.Root>
-    <Sheet.Trigger asChild let:builder>
-        <Button builders={[builder]}>Add Exercise</Button>
-    </Sheet.Trigger>
-    <Sheet.Content side="bottom">
-        <Sheet.Header>
-            <Sheet.Title>Exercise</Sheet.Title>
-            <Sheet.Description>Select an exercise to track</Sheet.Description>
-        </Sheet.Header>
-
-        <div class="flex flex-col h-[70vh] overflow-y-scroll gap-2">
-            <Input class="outline-none" bind:value={searchPattern} />
-            <div
-                class="flex flex-col border border-1 overflow-y-scroll rounded-lg"
-            >
-                {#each result as res}
-                    <Sheet.Close>
-                        <button
-                            class="border-b border-1 flex p-1 w-full hover:bg-gray-100"
-                            onclick={() => addExercise(res.item)}
-                        >
-                            {res.item.name}
-                        </button>
-                    </Sheet.Close>
-                {:else}
-                    <div class="flex items-center justify-center min-h-[100px]">
-                        <p>Search for an exercise</p>
-                    </div>
-                {/each}
-            </div>
+<div class="flex flex-col w-full">
+    <div class="flex items-center justify-between h-[50px] px-[8px]">
+        <Timer />
+        <div class="flex gap-1">
+            <Button variant="destructive" class="w-[128px]" onclick={cancel}>
+                Cancel
+            </Button>
+            <Button class="w-[128px]" onclick={save}>Save</Button>
         </div>
-    </Sheet.Content>
-</Sheet.Root>
+    </div>
+    <div
+        class="bg-gray-100 border-1 border flex flex-col h-[calc(100vh-82px)] gap-[4px] p-[2px] rounded-sm overflow-y-scroll"
+    >
+        {#each session.value as exercise}
+            <Exercise
+                eId={exercise.exerciseId}
+                {addSet}
+                {removeSet}
+                name={exercise.name}
+                sets={exercise.sets}
+                removeExercise={() => removeExercise(exercise.exerciseId!)}
+            />
+        {/each}
+    </div>
+    <Sheet.Root>
+        <Sheet.Trigger asChild let:builder>
+            <Button builders={[builder]}>Add Exercise</Button>
+        </Sheet.Trigger>
+        <Sheet.Content side="bottom">
+            <Sheet.Header>
+                <Sheet.Title>Exercise</Sheet.Title>
+                <Sheet.Description>
+                    Select an exercise to track
+                </Sheet.Description>
+            </Sheet.Header>
+
+            <div class="flex flex-col h-[70vh] overflow-y-scroll gap-2">
+                <Input class="outline-none" bind:value={searchPattern} />
+                <div
+                    class="flex flex-col border border-1 overflow-y-scroll rounded-lg"
+                >
+                    {#each result as res}
+                        <Sheet.Close>
+                            <button
+                                class="border-b border-1 flex p-1 w-full hover:bg-gray-100"
+                                onclick={() => addExercise(res.item)}
+                            >
+                                {res.item.name}
+                            </button>
+                        </Sheet.Close>
+                    {:else}
+                        <div
+                            class="flex items-center justify-center min-h-[100px]"
+                        >
+                            <p>Search for an exercise</p>
+                        </div>
+                    {/each}
+                </div>
+            </div>
+        </Sheet.Content>
+    </Sheet.Root>
+</div>

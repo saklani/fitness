@@ -8,6 +8,7 @@
 	import Separator from "@app/ui/separator/separator.svelte";
 	import { HistoryIcon, XIcon, CircleUserRound } from "lucide-svelte";
 	import type { PageData } from "./$types";
+	import CardContent from "@app/ui/card/card-content.svelte";
 
 	const session = localStore<Partial<TWorkoutExercise & { name: string }>[]>(
 		"workout",
@@ -28,12 +29,25 @@
 	export let data: PageData;
 </script>
 
-<div class="flex flex-col gap-[1.5rem]">
-	<div class="flex items-center justify-between px-2">
-		<h1 class="font-semibold text-sm">{new Date().toDateString()}</h1>
+<div
+	class="flex flex-col gap-[32px] max-w-[960px] w-full p-[24px] min-h-[100vh]"
+>
+	<div class="flex items-center justify-between">
+		<h1 class="title text-xl">
+			{new Date().toLocaleDateString("en-us", {
+				weekday: "long",
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+			})}
+		</h1>
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger>
-				<CircleUserRound strokeWidth={"1.2"} />
+				<CircleUserRound
+					color={"white"}
+					strokeWidth={"1.2"}
+					size={28}
+				/>
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Content>
 				<DropdownMenu.Group>
@@ -58,7 +72,7 @@
 
 	<div class="flex flex-col gap-2">
 		<div class="flex items-center justify-between gap-2">
-			<h1 class="text-xl">Workout Plans</h1>
+			<h1 class="title">Workout Plans</h1>
 			<Button
 				variant="outline"
 				class="w-[128px]"
@@ -98,6 +112,7 @@
 					</Card.Content>
 					<Card.Footer class="gap-2">
 						<Button
+							class="w-[128px]"
 							onclick={() => {
 								// TODO: Move to backend
 								for (const exerciseId of plan.exerciseIds) {
@@ -114,22 +129,27 @@
 					</Card.Footer>
 				</Card.Root>
 			{:else}
-				<div
-					class="bg-gray-100 flex h-[200px] w-full items-center justify-center rounded"
-				>
-					No workout plans
-				</div>
+				<Card.Root class="w-full">
+					<Card.Header></Card.Header>
+					<Card.Content
+						class="h-[100px] flex justify-center items-center"
+					>
+						No workout plans
+					</Card.Content>
+					<Card.Footer></Card.Footer>
+				</Card.Root>
 			{/each}
 		</div>
 	</div>
 	<Separator />
 	<div class="gap-2">
 		<button class="w-1/2" onclick={() => goto("/history")}>
-			<Card.Root class="hover:bg-slate-100">
-				<Card.Header class="flex-row items-center gap-2">
+			<Card.Root class="hover:bg-primary">
+				<Card.Header></Card.Header>
+				<CardContent class="flex flex-row gap-[12px] items-center p-[24px]">
 					<HistoryIcon size={"24px"} />
 					<Card.Title class="text-left h-[24px]">History</Card.Title>
-				</Card.Header>
+				</CardContent>
 				<Card.Footer />
 			</Card.Root>
 		</button>

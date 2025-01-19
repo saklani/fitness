@@ -35,32 +35,21 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<h1 class="text-2xl font-bold">Forgot Password</h1>
-<h1 class="text-gray-400 text-xs">Send a password reset link to your email</h1>
 
-<form method="POST" action="?/send_reset_link" use:enhance>
-	<div class="space-y-[8px] my-[12px]">
-		<!-- Email Field -->
-		<Form.Field {form} name="email">
-			<Form.Control let:attrs>
-				<Form.Label>Email</Form.Label>
-				<Input {...attrs} bind:value={$formData.email} />
-			</Form.Control>
-			<Form.FieldErrors />
-		</Form.Field>
-	</div>
-
-	<!-- Submit Button -->
-	<Form.Button class="w-full mt-[8px] mb-[16px]" disabled={isLoading}>
-		{#if isLoading}
-			Loading...
-		{:else}
-			Send Reset Link
-		{/if}
-	</Form.Button>
-
-	<!-- Display error message if there is one -->
-	{#if errorMessage}
-		<p class="text-red-600">{errorMessage}</p>
-	{/if}
-</form>
+<div class="flex flex-col w-full max-w-[400px] p-[24px]">
+	<h1 class="title">Forgot Password</h1>
+	<h2 class="subtitle">Enter your email to send a reset code</h2>
+	<form method="POST" action="?/login" use:enhance>
+		<div class="space-y-[12px] my-[36px]">
+			<Form.Field {form} name="email">
+				<Form.Control let:attrs>
+					<Form.Label>Email</Form.Label>
+					<Input {...attrs} bind:value={$formData.email} />
+				</Form.Control>
+				<Form.FieldErrors />
+			</Form.Field>
+			
+		</div>
+		<Form.Button class="w-full">Send a code</Form.Button>
+	</form>
+</div>
