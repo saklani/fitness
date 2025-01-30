@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import type { TWorkoutExercise } from "$lib/db/schema";
-	import Account from "@app/components/Account.svelte";
-	import Plan from "@app/components/Plan.svelte";
+	import Account from "@app/components/index/Account.svelte";
+	import Plan from "@app/components/index/Plan.svelte";
 	import History from "@app/components/index/History.svelte";
 	import { localStore } from "@app/localStore.svelte";
 	import Button from "@app/ui/button/button.svelte";
 	import * as Card from "@app/ui/card";
-	import CardContent from "@app/ui/card/card-content.svelte";
 	import Separator from "@app/ui/separator/separator.svelte";
-	import { HistoryIcon } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	const session = localStore<Partial<TWorkoutExercise & { name: string }>[]>(
@@ -20,7 +18,7 @@
 	export let data: PageData;
 </script>
 
-<div class="flex items-center justify-between">
+<div class="flex items-center justify-between h-[60px] ">
 	<h1 class="title text-lg">
 		{new Date().toLocaleDateString("en-us", {
 			weekday: "long",
@@ -36,7 +34,7 @@
 {:else}
 	<Button on:click={() => goto("/workout")}>Start empty workout</Button>
 {/if}
-
+<Separator/>
 <div class="flex flex-col gap-2">
 	<div class="flex items-center justify-between gap-2">
 		<h1 class="text-lg uppercase tracking-wide">Workout Plans</h1>

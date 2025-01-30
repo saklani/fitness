@@ -13,8 +13,8 @@
     </DropdownMenu.Trigger>
     <DropdownMenu.Content>
         <DropdownMenu.Group>
-            <DropdownMenu.Label>{user.email}</DropdownMenu.Label>
-            <DropdownMenu.Separator />
+            <DropdownMenu.Label class="text-sm">{user.email}</DropdownMenu.Label>
+            <div class="h-[24px]"></div>
             <form method="POST" action="?/logout">
                 <Button class="w-full" variant="destructive" type="submit">
                     Logout

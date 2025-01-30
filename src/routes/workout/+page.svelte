@@ -105,15 +105,13 @@
 <div class="flex items-center justify-between h-[50px]">
     <Timer />
     <div class="flex gap-1">
-        <Button variant="destructive" class="w-[96px]" onclick={cancel}>
+        <Button variant="destructive" onclick={cancel}>
             Cancel
         </Button>
-        <Button class="w-[96px]" onclick={save}>Save</Button>
+        <Button onclick={save}>Save</Button>
     </div>
 </div>
-<div
-    class="bg-white border-[1px] flex flex-col h-[calc(100vh-178px)] gap-[8px] p-[24px] rounded-[2px] overflow-y-scroll"
->
+
     {#each session.value as exercise}
         <Exercise
             eId={exercise.exerciseId}
@@ -124,10 +122,9 @@
             removeExercise={() => removeExercise(exercise.exerciseId!)}
         />
     {/each}
-</div>
 <Sheet.Root>
     <Sheet.Trigger asChild let:builder>
-        <Button builders={[builder]}>Add Exercise</Button>
+        <Button class="fixed bottom-4 mx-auto inset-x-0 z w-[300px]" builders={[builder]}>Add Exercise</Button>
     </Sheet.Trigger>
     <Sheet.Content side="bottom">
         <Sheet.Header>
@@ -135,7 +132,7 @@
             <Sheet.Description>Select an exercise to track</Sheet.Description>
         </Sheet.Header>
 
-        <div class="flex flex-col h-[70vh] overflow-y-scroll gap-[24px]">
+        <div class="flex flex-col h-[70vh] overflow-y-scroll p-[16px] lg:p-[16px] gap-[16px] lg:gap-[24px]">
             <Input class="outline-none" bind:value={searchPattern} />
             <div
                 class="flex flex-col border border-[1px] overflow-y-scroll rounded-lg"

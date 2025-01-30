@@ -17,7 +17,7 @@
 
 <input
 	class={cn(
-		"text-primary80 border-[1px] px-[8px] h-[38px] rounded-[2px] text-sm w-full outline-none focus:none",
+		"text-primary/80 border-[1px] px-[8px] h-[38px] rounded-[2px] text-sm w-full outline-none focus:none",
 		className
 	)}
 	bind:value

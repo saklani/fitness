@@ -19,7 +19,9 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<div class="flex flex-col w-full max-w-[400px] p-[24px]">
+<div
+	class="flex flex-col justify-center h-[calc(100vh-32px)] lg:h-[calc(100vh-48px)] items-stretch w-full"
+>
 	<h1 class="title">Login</h1>
 	<h2 class="subtitle">Enter your email below to login to your account</h2>
 	<form method="POST" action="?/login" use:enhance>
@@ -41,7 +43,10 @@
 					/>
 				</Form.Control>
 				<Form.FieldErrors />
-				<a class="text-blue-600 hover:underline text-xs" href="/password-reset">Forgot Password?</a>
+				<a
+					class="text-blue-600 hover:underline text-xs"
+					href="/password-reset">Forgot Password?</a
+				>
 			</Form.Field>
 		</div>
 		<Form.Button class="w-full">Login</Form.Button>

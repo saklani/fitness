@@ -67,37 +67,34 @@
 <div class="flex items-center justify-between h-[40px]">
 	<h1 class="title text-lg">Create A Plan</h1>
 	<div class="flex gap-1">
-		<Button class="w-[96px]" variant="destructive" onclick={cancel}>
-			Cancel
-		</Button>
-		<Button class="w-[96px]" onclick={save}>Save</Button>
+		<Button variant="destructive" onclick={cancel}>Cancel</Button>
+		<Button onclick={save}>Save</Button>
 	</div>
 </div>
 <Input placeholder="Workout Name" bind:value={name} />
-<div
-	class="border-[1px] flex flex-col h-[calc(100vh-230px)] gap-[8px] p-[12px] rounded-[2px] overflow-y-scroll"
->
-	{#each plan.value as exercise}
-		<Card.Root>
-			<Card.Header>
-				<Card.Title>{exercise.name}</Card.Title>
-			</Card.Header>
-			<Card.Content />
-			<Card.Footer class="justify-end">
-				<Button
-					class="w-[78px]"
-					variant="destructive"
-					onclick={() => removeExercise(exercise)}
-				>
-					Delete
-				</Button>
-			</Card.Footer>
-		</Card.Root>
-	{/each}
-</div>
+{#each plan.value as exercise}
+	<Card.Root>
+		<Card.Header>
+			<Card.Title>{exercise.name}</Card.Title>
+		</Card.Header>
+		<Card.Content />
+		<Card.Footer class="justify-end">
+			<Button
+				class="w-[78px]"
+				variant="destructive"
+				onclick={() => removeExercise(exercise)}
+			>
+				Delete
+			</Button>
+		</Card.Footer>
+	</Card.Root>
+{/each}
 <Sheet.Root>
 	<Sheet.Trigger asChild let:builder>
-		<Button builders={[builder]}>Add Exercise</Button>
+		<Button
+			class="fixed bottom-4 mx-auto inset-x-0 z w-[300px]"
+			builders={[builder]}>Add Exercise</Button
+		>
 	</Sheet.Trigger>
 	<Sheet.Content side="bottom">
 		<Sheet.Header>

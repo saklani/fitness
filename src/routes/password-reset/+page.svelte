@@ -35,11 +35,12 @@
 	const { form: formData, enhance } = form;
 </script>
 
-
-<div class="flex flex-col w-full max-w-[400px] p-[24px]">
+<div
+	class="flex flex-col justify-center h-[calc(100vh-32px)] lg:h-[calc(100vh-48px)] items-stretch w-full"
+>
 	<h1 class="title">Forgot Password</h1>
 	<h2 class="subtitle">Enter your email to send a reset code</h2>
-	<form method="POST" action="?/login" use:enhance>
+	<form method="POST" action="?/send_reset_link" use:enhance>
 		<div class="space-y-[12px] my-[36px]">
 			<Form.Field {form} name="email">
 				<Form.Control let:attrs>
@@ -48,7 +49,6 @@
 				</Form.Control>
 				<Form.FieldErrors />
 			</Form.Field>
-			
 		</div>
 		<Form.Button class="w-full">Send a code</Form.Button>
 	</form>

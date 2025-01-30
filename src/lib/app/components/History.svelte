@@ -7,7 +7,7 @@
 </script>
 
 <Card.Root>
-    <Card.Header>
+    <Card.Header class="border-b">
         <div class="flex w-full justify-between items-center">
             <Card.Title>
                 {workout.date.toLocaleDateString("en-us", {
@@ -22,14 +22,14 @@
     </Card.Header>
     <Card.Content>
         {#each workout.exercises as exercise}
-            <div class="flex flex-col mt-3">
+            <div class="flex flex-col">
                 <p class="font-semibold">
                     {exercise.name}
                 </p>
                 {#each exercise.sets as set}
-                    <div class="flex w-full gap-[0.75rem] items-center">
+                    <div class="h-[22px] flex w-full gap-[0.75rem] items-center">
                         <p class="w-[12px] text-sm font-bold">{set.index}.</p>
-                        <p class="">{set.weight}kg x {set.repetitions}</p>
+                        <p class="text-sm">{set.weight}kg x {set.repetitions}</p>
                     </div>
                 {/each}
             </div>

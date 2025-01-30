@@ -7,7 +7,7 @@
 <a href="/history">
     <Card.Root class="hover:bg-secondary/10">
         <Card.Content
-            class="flex flex-row gap-[16px] items-center p-[24px]"
+            class="flex flex-row items-center"
         >
             <HistoryIcon size={"22px"} />
             <Card.Title
