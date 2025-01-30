@@ -4,6 +4,7 @@ import * as auth from '$lib/server/auth';
 import { hash } from '@node-rs/argon2';
 import { encodeBase32LowerCase } from '@oslojs/encoding';
 import { fail, redirect } from '@sveltejs/kit';
+import { eq } from "drizzle-orm";
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import type { Actions, PageServerLoad } from '../login/$types';
@@ -26,6 +27,15 @@ export const actions: Actions = {
 			throw fail(400, { form });
 		}
 		const { email, password } = form.data;
+
+		try {
+			const res = await db.query.user.findFirst({ where: eq(table.user.email, email) });
+			if (res) {
+				return fail(400, { message: 'User already exists', form });
+			}
+		} catch (e) {
+			return fail(500, { message: 'An error has occurred', form });
+		}
 
 		const userId = generateUserId();
 		const passwordHash = await hash(password, {

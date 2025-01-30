@@ -36,7 +36,7 @@ export const actions: Actions = {
 
 		const existingUser = results.at(0);
 		if (!existingUser) {
-			return fail(400, { message: 'Incorrect email or password' });
+			return fail(400, { message: 'Incorrect email or password', form });
 		}
 
 		const validPassword = await verify(existingUser.passwordHash, password, {
@@ -46,7 +46,7 @@ export const actions: Actions = {
 			parallelism: 1,
 		});
 		if (!validPassword) {
-			return fail(400, { message: 'Incorrect email or password' });
+			return fail(400, { message: 'Incorrect email or password', form });
 		}
 
 		const sessionToken = auth.generateSessionToken();

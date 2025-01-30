@@ -8,12 +8,19 @@
 	} from "sveltekit-superforms";
 	import { zodClient } from "sveltekit-superforms/adapters";
 	import { formSchema, type FormSchema } from "./schema";
+	import { toast } from "svelte-sonner";
 
 	export let data: SuperValidated<Infer<FormSchema>>;
 
 	const form = superForm(data, {
 		validators: zodClient(formSchema),
 		dataType: "json",
+		onResult: async ({ result }) => {
+			if (result.status && result.status > 400) {
+				// @ts-ignore
+				toast(result.data.message);
+			}
+		},
 	});
 
 	const { form: formData, enhance } = form;

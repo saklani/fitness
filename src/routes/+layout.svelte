@@ -1,5 +1,6 @@
 <script lang="ts">
-	import "../app.css";
+	import { Toaster } from "@app/ui/sonner";
+import "../app.css";
 
 	let { children } = $props();
 </script>
@@ -10,4 +11,5 @@
 	>
 		{@render children()}
 	</div>
+	<Toaster/>
 </main>

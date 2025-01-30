@@ -1,35 +1,30 @@
 <script lang="ts">
-	import { Input } from "@app/ui/input";
+	import { goto } from "$app/navigation";
 	import * as Form from "@app/ui/form";
+	import { Input } from "@app/ui/input";
 	import {
-		type SuperValidated,
-		type Infer,
-		superForm,
+	    type Infer,
+	    superForm,
+	    type SuperValidated,
 	} from "sveltekit-superforms";
 	import { zodClient } from "sveltekit-superforms/adapters";
 	import { formSchema, type FormSchema } from "./schema";
-	import { toast } from "svelte-sonner";
+    import { toast } from "svelte-sonner";
 
-	export let data: SuperValidated<Infer<FormSchema>>
+	export let data: SuperValidated<Infer<FormSchema>>;
 
 	// Local component state
-	let isLoading = false;
-	let errorMessage = "";
 
 	// Initialize the superForm
 	const form = superForm(data, {
 		validators: zodClient(formSchema),
 		dataType: "json",
-		onResult: async () => {
-			try {
-				isLoading = true;
-			} catch (err) {
-				errorMessage = "Something went wrong. Please try again."
-				toast(errorMessage);
-			} finally {
-				isLoading = false;
+		onResult: async ({ result }) => {
+			if (result.status !== 200) {
+				//@ts-ignore
+				toast(result.data.message)
 			}
-		},
+		}
 	});
 
 	const { form: formData, enhance } = form;
