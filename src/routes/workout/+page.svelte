@@ -1,7 +1,7 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
     import { type TExercise, type TWorkoutExercise } from "$lib/db/schema";
-    import Exercise from "@app/components/Exercise.svelte";
+    import Exercise from "@app/components/workout/Exercise.svelte";
     import Timer from "@app/components/Timer.svelte";
     import { localStore } from "@app/localStore.svelte.js";
     import { Button } from "@app/ui/button";
@@ -105,26 +105,27 @@
 <div class="flex items-center justify-between h-[50px]">
     <Timer />
     <div class="flex gap-1">
-        <Button variant="destructive" onclick={cancel}>
-            Cancel
-        </Button>
+        <Button variant="destructive" onclick={cancel}>Cancel</Button>
         <Button onclick={save}>Save</Button>
     </div>
 </div>
 
-    {#each session.value as exercise}
-        <Exercise
-            eId={exercise.exerciseId}
-            {addSet}
-            {removeSet}
-            name={exercise.name}
-            sets={exercise.sets}
-            removeExercise={() => removeExercise(exercise.exerciseId!)}
-        />
-    {/each}
+{#each session.value as exercise}
+    <Exercise
+        eId={exercise.exerciseId}
+        {addSet}
+        {removeSet}
+        name={exercise.name}
+        sets={exercise.sets}
+        removeExercise={() => removeExercise(exercise.exerciseId!)}
+    />
+{/each}
 <Sheet.Root>
     <Sheet.Trigger asChild let:builder>
-        <Button class="fixed bottom-4 mx-auto inset-x-0 z w-[300px]" builders={[builder]}>Add Exercise</Button>
+        <Button
+            class="fixed bottom-4 mx-auto inset-x-0 z w-[300px]"
+            builders={[builder]}>Add Exercise</Button
+        >
     </Sheet.Trigger>
     <Sheet.Content side="bottom">
         <Sheet.Header>
@@ -132,7 +133,9 @@
             <Sheet.Description>Select an exercise to track</Sheet.Description>
         </Sheet.Header>
 
-        <div class="flex flex-col h-[70vh] overflow-y-scroll p-[16px] lg:p-[16px] gap-[16px] lg:gap-[24px]">
+        <div
+            class="flex flex-col h-[70vh] overflow-y-scroll p-[16px] lg:p-[16px] gap-[16px] lg:gap-[24px]"
+        >
             <Input class="outline-none" bind:value={searchPattern} />
             <div
                 class="flex flex-col border border-[1px] overflow-y-scroll rounded-lg"
@@ -147,7 +150,9 @@
                         </button>
                     </Sheet.Close>
                 {:else}
-                    <div class="flex items-center justify-center min-h-[100px] uppercase text-sm">
+                    <div
+                        class="flex items-center justify-center min-h-[100px] uppercase text-sm"
+                    >
                         <p>Search for an exercise</p>
                     </div>
                 {/each}

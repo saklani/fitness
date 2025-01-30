@@ -16,7 +16,7 @@
 		validators: zodClient(formSchema),
 		dataType: "json",
 		onResult: async ({ result }) => {
-			if (result.status && result.status > 400) {
+			if (result.status && result.status >= 400) {
 				// @ts-ignore
 				toast(result.data.message);
 			}
