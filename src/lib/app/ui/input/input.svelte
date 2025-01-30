@@ -17,7 +17,7 @@
 
 <input
 	class={cn(
-		"bg-secondary text-primary-foreground/80 border-[2px] border-black px-[12px] py-[6px] rounded-[2px] text-sm w-full outline-none focus:none",
+		"text-primary80 border-[1px] px-[8px] h-[38px] rounded-[2px] text-sm w-full outline-none focus:none",
 		className
 	)}
 	bind:value

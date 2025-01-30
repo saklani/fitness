@@ -8,6 +8,6 @@
 	export { className as class };
 </script>
 
-<SheetPrimitive.Description class={cn("text-muted-foreground text-sm", className)} {...$$restProps}>
+<SheetPrimitive.Description class={cn("text-muted-foreground text-xs uppercase font-semibold", className)} {...$$restProps}>
 	<slot />
 </SheetPrimitive.Description>

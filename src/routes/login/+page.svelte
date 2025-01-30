@@ -46,7 +46,7 @@
 		</div>
 		<Form.Button class="w-full">Login</Form.Button>
 	</form>
-	<p class="text-sm font-semibold text-gray-500 my-[8px]">
+	<p class="info my-[8px]">
 		Don't have an account?
 		<a class="text-blue-600 hover:underline" href="/register">Register</a>
 	</p>

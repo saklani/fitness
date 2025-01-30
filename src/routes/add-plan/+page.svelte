@@ -64,70 +64,68 @@
 	}
 </script>
 
-<div class="flex flex-col h-[100vh] gap-2 p-2 w-full">
-	<div class="flex items-center justify-between h-[3rem]">
-		<h1 class="title text-xl">Create A Plan</h1>
-		<div class="flex gap-1">
-			<Button class="w-[128px]" variant="destructive" onclick={cancel}>Cancel</Button>
-			<Button class="w-[128px]" onclick={save}>Save</Button>
-		</div>
+<div class="flex items-center justify-between h-[40px]">
+	<h1 class="title text-lg">Create A Plan</h1>
+	<div class="flex gap-1">
+		<Button class="w-[96px]" variant="destructive" onclick={cancel}>
+			Cancel
+		</Button>
+		<Button class="w-[96px]" onclick={save}>Save</Button>
 	</div>
-	<Input placeholder="Workout Name" bind:value={name} />
-	<div
-		class="border-[2px] border-black flex flex-col h-[calc(100vh-3rem)] gap-[4px] p-[2px] rounded-[2px] overflow-y-scroll"
-	>
-		{#each plan.value as exercise}
-			<Card.Root>
-				<Card.Content
-					class="flex flex-row items-center justify-between"
-				>
-					<Card.Title>{exercise.name}</Card.Title>
-					<Button
-					class="w-[128px]"
-						variant="destructive"
-						onclick={() => removeExercise(exercise)}
-					>
-						Delete
-					</Button>
-				</Card.Content>
-			</Card.Root>
-		{/each}
-	</div>
-	<Sheet.Root>
-		<Sheet.Trigger asChild let:builder>
-			<Button builders={[builder]}>Add Exercise</Button>
-		</Sheet.Trigger>
-		<Sheet.Content side="bottom">
-			<Sheet.Header>
-				<Sheet.Title>Exercise</Sheet.Title>
-				<Sheet.Description>
-					Select an exercise to track
-				</Sheet.Description>
-			</Sheet.Header>
-
-			<div class="flex flex-col h-[70vh] overflow-y-scroll gap-2">
-				<Input class="outline-none" bind:value={searchPattern} />
-				<div
-					class="flex flex-col border border-1 overflow-y-scroll rounded-lg"
-				>
-					{#each result as res}
-						<Sheet.Close>
-							<button
-								class="border-b border-1 flex p-1 w-full hover:bg-gray-100"
-								onclick={() => addExercise(res.item)}
-							>
-								{res.item.name}
-							</button>
-						</Sheet.Close>
-					{:else}
-						<div
-							class="flex items-center justify-center min-h-[100px]"
-						>
-							<p>Search for an exercise</p>
-						</div>
-					{/each}
-				</div>
-			</div>
-		</Sheet.Content>
-	</Sheet.Root>
 </div>
+<Input placeholder="Workout Name" bind:value={name} />
+<div
+	class="border-[1px] flex flex-col h-[calc(100vh-230px)] gap-[8px] p-[12px] rounded-[2px] overflow-y-scroll"
+>
+	{#each plan.value as exercise}
+		<Card.Root>
+			<Card.Header>
+				<Card.Title>{exercise.name}</Card.Title>
+			</Card.Header>
+			<Card.Content />
+			<Card.Footer class="justify-end">
+				<Button
+					class="w-[78px]"
+					variant="destructive"
+					onclick={() => removeExercise(exercise)}
+				>
+					Delete
+				</Button>
+			</Card.Footer>
+		</Card.Root>
+	{/each}
+</div>
+<Sheet.Root>
+	<Sheet.Trigger asChild let:builder>
+		<Button builders={[builder]}>Add Exercise</Button>
+	</Sheet.Trigger>
+	<Sheet.Content side="bottom">
+		<Sheet.Header>
+			<Sheet.Title>Exercise</Sheet.Title>
+			<Sheet.Description>Select an exercise to track</Sheet.Description>
+		</Sheet.Header>
+		<div class="flex flex-col h-[70vh] overflow-y-scroll gap-2">
+			<Input class="outline-none" bind:value={searchPattern} />
+			<div
+				class="flex flex-col border border-1 overflow-y-scroll rounded-lg"
+			>
+				{#each result as res}
+					<Sheet.Close>
+						<button
+							class="border-b border-1 flex p-1 w-full hover:bg-gray-100"
+							onclick={() => addExercise(res.item)}
+						>
+							{res.item.name}
+						</button>
+					</Sheet.Close>
+				{:else}
+					<div class="flex items-center justify-center min-h-[100px]">
+						<p class="uppercase text-sm tracking-wide">
+							Search for an exercise
+						</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</Sheet.Content>
+</Sheet.Root>

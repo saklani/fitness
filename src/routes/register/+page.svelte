@@ -62,7 +62,7 @@
 		<Form.Button class="w-full">Register</Form.Button>
 	</form>
 
-	<p class="text-sm font-semibold text-gray-500 my-[8px]">
+	<p class="text-sm text-gray-500 my-[8px]">
 		Already have an account?
 		<a class="text-blue-600 hover:underline" href="/login">Login</a>
 	</p>

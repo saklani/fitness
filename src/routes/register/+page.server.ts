@@ -20,7 +20,7 @@ export const load: PageServerLoad = async (event) => {
 
 export const actions: Actions = {
 	register: async (event) => {
-		console.log("register");
+		console.log("Register");
 		const form = await superValidate(event, zod(formSchema));
 		if (!form.valid) {
 			throw fail(400, { form });

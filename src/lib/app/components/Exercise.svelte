@@ -11,7 +11,7 @@
 </script>
 
 <Card.Root>
-    <Card.Header class="flex-row items-center justify-between">
+    <Card.Header class="border-b flex-row items-center justify-between">
         <Card.Title>{name}</Card.Title>
         <div><DeleteExercise {removeExercise} /></div>
     </Card.Header>
@@ -31,6 +31,7 @@
                     <Button
                         class="w-[36px] h-[36px] p-0"
                         variant="outline"
+                        size="icon"
                         on:click={() => removeSet(eId, set)}
                     >
                         <XIcon size={16}/>
