@@ -96,3 +96,9 @@ export async function getPlansByUserId({ userId }: Pick<table.TPlan, "userId">) 
         return await db.query.plan.findMany({ where: eq(table.plan.userId, userId) });
     });
 }
+
+export async function deletePlan({id}: Pick<table.TPlan, "id">) {
+    return executeDbOperation(`Failed to delete plan`, async () => {
+        await db.delete(table.plan).where(eq(table.plan.id, id));
+    });
+}

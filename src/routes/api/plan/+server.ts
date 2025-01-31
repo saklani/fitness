@@ -33,7 +33,7 @@ export async function DELETE({ locals, request }) {
     }
     const { id } = await request.json();
     try {
-        await db.delete(plan).where(eq(id, plan.id));
+        await queries.deletePlan({id});
         return json({ id }, { status: 201 });
     } catch (error) {
         console.log(error);
