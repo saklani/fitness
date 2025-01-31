@@ -18,7 +18,7 @@
 	export let data: PageData;
 </script>
 
-<div class="flex items-center justify-between h-[60px] ">
+<div class="flex items-center justify-between h-[60px]">
 	<h1 class="title text-lg">
 		{new Date().toLocaleDateString("en-us", {
 			weekday: "long",
@@ -27,7 +27,7 @@
 			day: "numeric",
 		})}
 	</h1>
-	<Account user={data.user} />
+	<Account data user={data.user} />
 </div>
 {#if session.check("timer")}
 	<Button on:click={() => goto("/workout")}>Continue</Button>

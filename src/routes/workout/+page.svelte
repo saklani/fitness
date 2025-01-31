@@ -102,7 +102,7 @@
     }
 </script>
 
-<div class="flex items-center justify-between h-[50px]">
+<div class="border-b flex items-center justify-between h-[50px]">
     <Timer />
     <div class="flex gap-1">
         <Button variant="destructive" onclick={cancel}>Cancel</Button>

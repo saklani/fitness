@@ -3,8 +3,9 @@
 
     import * as DropdownMenu from "@app/ui/dropdown-menu";
     import { CircleUserRound } from "lucide-svelte";
+    import Logout from "./logout/Logout.svelte";
 
-    let { user } = $props();
+    let { data, user } = $props();
 </script>
 
 <DropdownMenu.Root>
@@ -15,11 +16,7 @@
         <DropdownMenu.Group>
             <DropdownMenu.Label class="text-sm">{user.email}</DropdownMenu.Label>
             <div class="h-[24px]"></div>
-            <form method="POST" action="?/logout">
-                <Button class="w-full" variant="destructive" type="submit">
-                    Logout
-                </Button>
-            </form>
+            <Logout data/>
         </DropdownMenu.Group>
     </DropdownMenu.Content>
 </DropdownMenu.Root>

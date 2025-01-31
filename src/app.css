@@ -47,7 +47,7 @@
   }
 
   .title {
-    @apply text-primary text-lg lg:text-xl uppercase tracking-wide;
+    @apply text-primary text-lg md:text-[28px] lg:text-[32px] uppercase;
   }
 
   .subtitle {

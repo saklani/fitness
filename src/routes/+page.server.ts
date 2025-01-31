@@ -1,9 +1,10 @@
 import { db } from '$lib/db';
 import { plan } from '$lib/db/schema';
 import * as auth from '$lib/server/auth';
-import { fail, redirect } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 import type { Actions, PageServerLoad } from './$types';
+import { logout } from '@app/components/index/logout/action';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {
@@ -14,15 +15,5 @@ export const load: PageServerLoad = async (event) => {
 };
 
 export const actions: Actions = {
-	logout: async (event) => {
-		console.log("Logout");
-		if (!event.locals.session) {
-			return fail(401);
-		}
-		await auth.invalidateSession(event.locals.session.id);
-		auth.deleteSessionTokenCookie(event);
-		event.locals.user = null;
-		event.locals.session = null;
-		return redirect(302, '/login');
-	},
+	logout
 };

@@ -5,9 +5,9 @@
 	let { children } = $props();
 </script>
 
-<main class={"flex items-center justify-center bg-white min-h-[100vh]"}>
+<main class={"flex items-center justify-center min-h-[100vh]"}>
 	<div
-		class={"flex flex-col items-stretch bg-background min-h-[100vh] w-full max-w-[640px] border-x p-[12px] lg:p-[24px] gap-[12px] lg:gap-[24px]"}
+		class={"flex flex-col items-stretch min-h-[100vh] w-full max-w-[640px] p-[12px] lg:p-[24px] gap-[12px] lg:gap-[24px]"}
 	>
 		{@render children()}
 	</div>
