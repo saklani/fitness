@@ -142,7 +142,7 @@
         </Sheet.Header>
 
         <div
-            class="flex flex-col h-[70vh] overflow-y-scroll p-[16px] lg:p-[16px] gap-[16px] lg:gap-[24px]"
+            class="flex flex-col h-[70vh] overflow-y-scroll"
         >
             <Input class="outline-none" bind:value={searchPattern} />
             <div

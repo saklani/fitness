@@ -8,6 +8,7 @@
 	} from "sveltekit-superforms";
 	import { zodClient } from "sveltekit-superforms/adapters";
 	import { formSchema, type FormSchema } from "./schema";
+	import * as Card from "@app/ui/card";
 
 	export let data: SuperValidated<Infer<FormSchema>>;
 
@@ -36,20 +37,29 @@
 </script>
 
 <div
-	class="flex flex-col justify-center h-[calc(100vh-32px)] lg:h-[calc(100vh-48px)] items-stretch w-full"
+	class="flex flex-col justify-center items-center h-[calc(100vh-32px)] md:h-[calc(100vh-48px)]"
 >
-	<h1 class="title">Forgot Password</h1>
-	<h2 class="subtitle">Enter your email to send a reset code</h2>
-	<form method="POST" action="?/send_reset_link" use:enhance>
-		<div class="space-y-[12px] my-[36px]">
-			<Form.Field {form} name="email">
-				<Form.Control let:attrs>
-					<Form.Label>Email</Form.Label>
-					<Input {...attrs} bind:value={$formData.email} />
-				</Form.Control>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-		<Form.Button class="w-full">Send a code</Form.Button>
-	</form>
+	<Card.Root
+		class="flex flex-col justify-between gap-[24px] py-[24px] max-w-[470px] w-full"
+	>
+		<Card.Header>
+			<h1 class="title">Forgot Password</h1>
+			<h2 class="subtitle">Enter your email to send a reset code</h2>
+		</Card.Header>
+		<Card.Content>
+			<form method="POST" action="?/send_reset_link" use:enhance>
+				<div class="space-y-[12px] my-[36px]">
+					<Form.Field {form} name="email">
+						<Form.Control let:attrs>
+							<Form.Label>Email</Form.Label>
+							<Input {...attrs} bind:value={$formData.email} />
+						</Form.Control>
+						<Form.FieldErrors />
+					</Form.Field>
+				</div>
+				<Form.Button class="w-full">Send a code</Form.Button>
+			</form>
+		</Card.Content>
+		<Card.Footer></Card.Footer>
+	</Card.Root>
 </div>

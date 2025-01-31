@@ -13,7 +13,7 @@ export async function POST({ locals, request }) {
         throw error(401);
     }
     const userId: string = locals.user.id;
-    const { exercises, time }: Workout = await request.json()
+    const { exercises, time }: Workout = await request.json();
 
     try {
         const id = await db.transaction(async (tx) => {

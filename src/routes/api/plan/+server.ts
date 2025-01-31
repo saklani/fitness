@@ -1,6 +1,6 @@
-import { error, json } from '@sveltejs/kit';
-import { db } from '$lib/db/index.js';
+import { db, queries } from '$lib/db/index.js';
 import { plan } from '$lib/db/schema.js';
+import { error, json } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 
 type Plan = {
@@ -16,9 +16,8 @@ export async function POST({ locals, request }) {
     const { name, exercises }: Plan = await request.json();
 
     try {
-        const res = await db.insert(plan).values({ name, userId, exerciseIds: exercises }).returning({ id: plan.id });
-        return json({ id: res[0].id }, { status: 201 });
-
+        const id = await queries.createPlan({name, userId, exerciseIds: exercises });
+        return json({ id }, { status: 201 });
     } catch (error) {
         console.log(error);
     }

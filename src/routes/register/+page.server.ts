@@ -14,6 +14,4 @@ export const load: PageServerLoad = async (event) => {
 	};
 };
 
-export const actions: Actions = {
-	register
-}
+export const actions: Actions = { register }

@@ -1,10 +1,8 @@
-import { db } from '$lib/db';
-import * as table from '$lib/db/schema';
+import { queries } from '$lib/db';
 import * as auth from '$lib/server/auth';
 import { verify } from '@node-rs/argon2';
 import type { RequestEvent } from "@sveltejs/kit";
 import { error, redirect } from '@sveltejs/kit';
-import { eq } from 'drizzle-orm/sql';
 import { superValidate } from "sveltekit-superforms";
 import { zod } from 'sveltekit-superforms/adapters';
 import { formSchema } from './schema';
@@ -17,12 +15,7 @@ export async function login(event: RequestEvent) {
     }
     const { email, password } = form.data;
 
-    const results = await db
-        .select()
-        .from(table.user)
-        .where(eq(table.user.email, email));
-
-    const existingUser = results.at(0);
+    const existingUser = await queries.getUserByEmail({email});
     if (!existingUser) {
         throw error(400, { message: 'Incorrect email or password' });
     }

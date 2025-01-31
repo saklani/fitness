@@ -122,4 +122,6 @@ export type TExercise = typeof exercise.$inferSelect;
 
 export type TWorkoutExercise = typeof workoutExercise.$inferSelect;
 
-export type TWorkout = typeof workout.$inferSelect
+export type TWorkout = typeof workout.$inferSelect;
+
+export type TPlan = typeof plan.$inferSelect;

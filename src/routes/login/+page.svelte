@@ -7,7 +7,7 @@
 	let { data }: { data: SuperValidated<Infer<FormSchema>> } = $props();
 </script>
 
-<div class="flex flex-col justify-center items-center h-[100vh]">
+<div class="flex flex-col justify-center items-center h-[calc(100vh-32px)] md:h-[calc(100vh-48px)]">
 	<Card.Root
 		class="flex flex-col justify-between gap-[24px] py-[24px] max-w-[470px] w-full"
 	>
