@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto, invalidateAll } from "$app/navigation";
+    import Header from "@app/components/Header.svelte";
 	import { localStore } from "@app/localStore.svelte.js";
 	import { Button } from "@app/ui/button";
 	import * as Card from "@app/ui/card";
@@ -64,13 +65,13 @@
 	}
 </script>
 
-<div class="flex items-center justify-between h-[40px]">
+<Header>
 	<h1 class="title text-lg">Create A Plan</h1>
 	<div class="flex gap-1">
 		<Button variant="destructive" onclick={cancel}>Cancel</Button>
 		<Button onclick={save}>Save</Button>
 	</div>
-</div>
+</Header>
 <Input placeholder="Workout Name" bind:value={name} />
 {#each plan.value as exercise}
 	<Card.Root>

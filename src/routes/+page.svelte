@@ -9,6 +9,7 @@
 	import * as Card from "@app/ui/card";
 	import Separator from "@app/ui/separator/separator.svelte";
 	import type { PageData } from "./$types";
+	import Header from "@app/components/Header.svelte";
 
 	const session = localStore<Partial<TWorkoutExercise & { name: string }>[]>(
 		"workout",
@@ -18,7 +19,7 @@
 	export let data: PageData;
 </script>
 
-<div class="flex items-center justify-between h-[60px]">
+<Header>
 	<h1 class="title text-lg">
 		{new Date().toLocaleDateString("en-us", {
 			weekday: "long",
@@ -28,13 +29,13 @@
 		})}
 	</h1>
 	<Account data user={data.user} />
-</div>
+</Header>
 {#if session.check("timer")}
 	<Button on:click={() => goto("/workout")}>Continue</Button>
 {:else}
 	<Button on:click={() => goto("/workout")}>Start empty workout</Button>
 {/if}
-<Separator/>
+<Separator />
 <div class="flex flex-col gap-2">
 	<div class="flex items-center justify-between gap-2">
 		<h1 class="text-lg uppercase tracking-wide">Workout Plans</h1>

@@ -8,6 +8,7 @@
     import { Input } from "@app/ui/input";
     import * as Sheet from "@app/ui/sheet";
     import Fuse from "fuse.js";
+    import Header from "@app/components/Header.svelte";
 
     const fuseOptions = {
         isCaseSensitive: false,
@@ -53,10 +54,18 @@
     }
 
     async function save() {
+        const startTime = localStorage.getItem("timer");
+        if (startTime === null) {
+            return;
+        }
+
+        const currentTime = new Date();
+        const time =
+            currentTime.getTime() / 1000 - Date.parse(startTime) / 1000;
         await fetch("/api/workout", {
             body: JSON.stringify({
                 exercises: session.value,
-                time: localStorage.getItem("timer"),
+                time,
             }),
             method: "post",
         });
@@ -102,14 +111,13 @@
     }
 </script>
 
-<div class="border-b flex items-center justify-between h-[50px]">
+<Header>
     <Timer />
     <div class="flex gap-1">
         <Button variant="destructive" onclick={cancel}>Cancel</Button>
         <Button onclick={save}>Save</Button>
     </div>
-</div>
-
+</Header>
 {#each session.value as exercise}
     <Exercise
         eId={exercise.exerciseId}
