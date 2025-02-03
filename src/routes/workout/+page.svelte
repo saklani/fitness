@@ -118,16 +118,18 @@
         <Button onclick={save}>Save</Button>
     </div>
 </Header>
-{#each session.value as exercise}
-    <Exercise
-        eId={exercise.exerciseId}
-        {addSet}
-        {removeSet}
-        name={exercise.name}
-        sets={exercise.sets}
-        removeExercise={() => removeExercise(exercise.exerciseId!)}
-    />
-{/each}
+<div class="flex flex-col pb-[40px] gap-[8px]"> 
+    {#each session.value as exercise}
+        <Exercise
+            eId={exercise.exerciseId}
+            {addSet}
+            {removeSet}
+            name={exercise.name}
+            sets={exercise.sets}
+            removeExercise={() => removeExercise(exercise.exerciseId!)}
+        />
+    {/each}
+</div>
 <Sheet.Root>
     <Sheet.Trigger asChild let:builder>
         <Button
@@ -141,9 +143,7 @@
             <Sheet.Description>Select an exercise to track</Sheet.Description>
         </Sheet.Header>
 
-        <div
-            class="flex flex-col h-[70vh] overflow-y-scroll"
-        >
+        <div class="flex flex-col h-[70vh] overflow-y-scroll">
             <Input class="outline-none" bind:value={searchPattern} />
             <div
                 class="flex flex-col border border-[1px] overflow-y-scroll rounded-lg"
